@@ -1,0 +1,245 @@
+<main>
+  <div class="menu">
+    <div class="menu-header">
+      <p>Please check the reservation details</p>
+    </div>
+
+    <div class="menu-time">
+      <span
+        >Private room dining Rakuzo-RAKUZO-Sapporo station square store</span
+      >
+      <p id="time-consume">{{ day }} {{ people }} people {{ time }}</p>
+    </div>
+
+    <div class="menu-format">
+      <p>Reservation format</p>
+      <span
+        style="color: red; margin-bottom: 5px; display: block; font-weight: 600"
+        id="menu-request"
+        >{{ request }}</span
+      >
+      <br />
+      <span style="font-size: 12px"
+        >* The reservation format is immediate reservation. The reservation will
+        be confirmed when the reservation is completed on the WEB.</span
+      >
+    </div>
+
+    <div class="menu-booked">
+      <p style="font-weight: 600">Booked course</p>
+      <div class="menu-body">
+        <div class="menu-course" *ngFor="let item of courses">
+          <div class="menu-image">
+            <img
+              src="https://www.thaistreet.com.vn/wp-content/uploads/2021/04/Food.jpg"
+              alt="food"
+            />
+          </div>
+
+          <div class="menu-info">
+            <div class="menu-info__header">
+              <p class="menu-p">2 hours</p>
+              <p class="menu-p">all you can drink</p>
+            </div>
+
+            <div class="menu-info__body">
+              <h3 id="coursenamedetail">{{ item.title }}</h3>
+              <p class="menu-price" id="menu-price">
+                {{ item.price }} (tax included)
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-seat">
+      <p style="font-weight: 600">Reserved seat</p>
+      <div class="seat-flex">
+        <div
+          class="menu-content_item"
+          style="border-bottom: none"
+          *ngFor="let seat of courses"
+        >
+          <div class="menu-image">
+            <img
+              src="http://aimory.vn/wp-content/uploads/2017/10/no-image.png"
+              alt="food"
+            />
+          </div>
+
+          <div class="menu-info">
+            <p>Private room / non-smoking seat</p>
+            <span style="font-size: 14px">Charge fee: None</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bonus">
+    <p class="bonus-title">Earn PayPay Bonus</p>
+    <div class="bonus-content">
+      <h4>
+        In visit us <span style="font-size: 20px">150</span>
+        <span>equivalent yen</span>
+        <span style="color: gray">(PayPay bonus)</span>
+        <span style="font-size: 20px">acquisition</span>
+      </h4>
+      <p>
+        * If you have not linked with PayPay, you can link from the reservation
+        completion screen.
+      </p>
+      <p>
+        * The amount of PayPay bonus granted may vary depending on the
+        conditions of your reservation. Please
+        <span style="color: blue">see here</span> for details.
+      </p>
+      <p>
+        * The maximum PayPay bonus you can get with Retty is equivalent to 3,000
+        yen per month
+      </p>
+      <p>
+        * PayPay bonus cannot be withdrawn or transfered. Also available at the
+        PayPay official store.
+      </p>
+    </div>
+  </div>
+
+  <div class="form">
+    <form id="ngForm" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="form-input">
+        <label for="fname"
+          >name <span style="color: orange">Mandatory</span>
+          <span style="font-size: 12px">(Please input in Katakana)</span></label
+        ><br />
+        <input
+          type="text"
+          placeholder="Your name"
+          formControlName="username"
+          [ngClass]="{ 'is-invalid': submitted && f.username.errors }"
+        />
+        <div *ngIf="submitted && f.username.errors" class="error">
+          <div *ngIf="f.username.errors.required">Username is required</div>
+          <div *ngIf="f.username.errors.minlength">
+            Username must be at least 6 characters
+          </div>
+          <div *ngIf="f.username.errors.maxlength">
+            Username must not exceed 20 characters
+          </div>
+        </div>
+        <span *ngIf="submitted && f.username.errors" class="form-check"
+          ><i class="fas fa-exclamation-circle" style="color: red"></i
+        ></span>
+        <span class="form-check" *ngIf="!f.username.errors"
+          ><i class="fas fa-check-circle"></i
+        ></span>
+      </div>
+
+      <div class="form-input">
+        <label for="phone"
+          >cell phone <span style="color: orange">Mandatory</span>
+          <span style="font-size: 12px"
+            >(Enter 11 digits without hyphens)</span
+          ></label
+        ><br />
+        <input
+          type="number"
+          placeholder="Your phone number"
+          formControlName="phone"
+          [ngClass]="{ 'is-invalid': submitted && f.phone.errors }"
+        />
+        <div *ngIf="submitted && f.phone.errors" class="error">
+          <div *ngIf="f.phone.errors.required">Phone number is required</div>
+          <div *ngIf="f.phone.errors.minlength">
+            Phone length must be 11 digits
+          </div>
+        </div>
+        <span *ngIf="submitted && f.phone.errors" class="form-check"
+          ><i class="fas fa-exclamation-circle" style="color: red"></i
+        ></span>
+        <span class="form-check" *ngIf="!f.phone.errors"
+          ><i class="fas fa-check-circle"></i
+        ></span>
+      </div>
+
+      <div class="form-input">
+        <label for="email"
+          >email address <span style="color: orange">Mandatory</span> </label
+        ><br />
+        <input
+          type="email"
+          placeholder="Your email address"
+          formControlName="email"
+          [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+        />
+        <div *ngIf="submitted && f.email.errors" class="error">
+          <div *ngIf="f.email.errors.required">Email is required</div>
+          <div *ngIf="f.email.errors.email">Email is invalid</div>
+        </div>
+        <span *ngIf="submitted && f.email.errors" class="form-check"
+          ><i class="fas fa-exclamation-circle" style="color: red"></i
+        ></span>
+        <span class="form-check" *ngIf="!f.email.errors"
+          ><i class="fas fa-check-circle"></i
+        ></span>
+      </div>
+
+      <span style="color: orange; font-size: 12px"
+        >Please be careful not to enter the wrong email address</span
+      >
+      <p style="margin-top: 15px; font-size: 12px">
+        You may not receive the contact email due to the reception refusal
+        setting. Please make settings so that you can receive emails from
+        <u>reserve@retty.me</u>
+      </p>
+    </form>
+  </div>
+  <div class="visit">
+    <p>
+      Is this your first visit?
+      <span style="color: orange; font-size: 12px">Any</span>
+    </p>
+    <form class="visit-form" action="final-step.html" id="myform">
+      <div style="width: 50%; border-right: 1px solid gray">
+        <input type="radio" id="yes" name="check" value="yes" required />
+        <label for="yes">Yes</label>
+      </div>
+      <div>
+        <input type="radio" id="no" name="check" value="no" />  
+        <label for="no">No</label>
+      </div>
+    </form>
+  </div>
+
+  <div class="footer">
+    <p class="footer-p">
+      If the contact information registered at the time of reservation is
+      invalid, the reservation may not be completed at the discretion of the
+      shop.
+    </p>
+    <p>
+      Please check the <span>terms of use, terms</span> of <span>use</span>, and
+      <span>privacy policy regarding the acquisition of PayPay bonus.</span>
+    </p>
+  </div>
+
+  <div class="footer-btn">
+    <a
+      routerLink="/details"
+      style="
+        background-color: whitesmoke;
+        color: gray;
+        margin-right: 20px;
+        line-height: 28px;
+      "
+      >Return to the previous screen</a
+    >
+
+    <button type="submit" form="ngForm" class="proceed">
+      <span style="font-size: 10px"
+        >I agree to the terms and privacy policy,</span
+      ><br />Confirm with this reservation content
+    </button>
+  </div>
+</main>

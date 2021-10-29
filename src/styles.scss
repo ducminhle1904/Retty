@@ -1,0 +1,431 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+// reset css
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html,
+body {
+  font-family: "Poppins", sans-serif;
+  color: #2e2e3a;
+  background-color: #f4f4f5;
+  font-weight: 500;
+}
+a {
+  text-decoration: none;
+}
+.price {
+  color: #d70025;
+}
+
+.orange-cl {
+  color: #ff9f11 !important;
+}
+
+.gray-cl {
+  color: #d5d5d8;
+}
+
+.dark-gray-cl {
+  color: #8c8c93;
+}
+
+.arrow-down {
+  color: #2d88da;
+}
+
+.green-cl {
+  color: #00a49f;
+}
+
+.tan-cl {
+  background-color: #fff9e7;
+}
+
+.link {
+  color: #539de1;
+}
+
+.span-big {
+  color: #62626c;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.span-small {
+  font-size: 12px;
+  color: rgb(197, 194, 194);
+}
+
+.proceed {
+  padding: 10px 25px;
+  background-color: #00a49f;
+  border: 1px solid #00a49f;
+  border-radius: 5px;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+}
+
+.center-btn {
+  text-align: center;
+  margin: 50px 0;
+}
+
+.menu {
+  background-color: white;
+  padding: 10px 25px;
+  margin-bottom: 10px;
+  margin-top: 15px;
+  .menu-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    border-bottom: 1px solid rgb(58, 56, 56);
+    padding-bottom: 10px;
+    align-items: center;
+  }
+  .menu-content {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+input[type="radio"] {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  outline: none;
+  background-color: rgb(255, 255, 255);
+  border: 3px solid orange;
+  cursor: pointer;
+}
+input[type="radio"]:hover {
+  box-shadow: 0px 0 6px orange inset;
+}
+
+input[type="radio"]:checked {
+  background-color: orange;
+}
+
+.p-border-bottom {
+  color: #b9b9bd;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgb(58, 56, 56);
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+main {
+  max-width: 1000px;
+  margin: 20px auto;
+}
+
+.menu-course {
+  display: flex;
+  padding: 10px 0;
+  border-bottom: 1px solid rgb(58, 56, 56);
+  .menu-image {
+    width: 100px;
+  }
+
+  .menu-image img {
+    width: 100%;
+  }
+
+  .menu-info {
+    flex-grow: 1;
+    padding-left: 10px;
+    .menu-info__header {
+      display: flex;
+      margin-bottom: 15px;
+    }
+    .menu-p {
+      font-size: 10px;
+      color: #ff9f11;
+      padding: 5px;
+      border: 1px solid #ff9f11;
+      border-radius: 5px;
+      margin: 0 5px;
+    }
+    .menu-info__body {
+      padding-left: 10px;
+      width: 700px;
+    }
+
+    .menu-info__body a:first-child {
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: black;
+      line-height: 20px;
+    }
+
+    .menu-info__body a {
+      cursor: pointer;
+    }
+
+    .menu-info__body i {
+      margin-left: 5px;
+      color: #2d88da;
+    }
+
+    .menu-price {
+      color: #df3a54;
+      margin-top: 10px;
+      font-weight: 600;
+      font-size: 18px;
+    }
+  }
+
+  .menu-info p {
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .menu-btn {
+    margin: auto;
+  }
+
+  .menu-btn button {
+    background-color: transparent;
+    outline: none;
+    padding: 10px 30px;
+    border: 1px solid rgb(58, 56, 56);
+    border-radius: 5px;
+    font-weight: 700;
+  }
+
+  .menu-btn button:hover {
+    cursor: pointer;
+    background-color: tan;
+    color: white;
+  }
+
+  .menu-body {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.menu-seat {
+  margin-top: 15px;
+  .seat-flex {
+    display: flex;
+    flex-direction: column;
+    .menu-content_item {
+      display: flex;
+      padding: 10px 0;
+      border-bottom: 1px solid rgb(58, 56, 56);
+
+      .menu-image {
+        width: 100px;
+      }
+
+      .menu-image img {
+        width: 100%;
+      }
+
+      .menu-info {
+        flex-grow: 1;
+        padding-left: 10px;
+      }
+
+      .menu-info p {
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .stepper .stepper__item {
+    padding: 10px 20px;
+  }
+  .end {
+    text-align: center;
+  }
+  .days div {
+    width: calc(19.9rem / 7);
+    height: 40px;
+  }
+  .menu-course {
+    .menu-info {
+      .menu-info__body {
+        font-size: 14px;
+        width: 430px;
+      }
+    }
+  }
+}
+
+/*iPhone*/
+@media screen and (max-width: 767px) {
+  .stepper .stepper__item {
+    padding: 10px 10px;
+    font-size: 14px;
+  }
+  .menu-btn {
+    display: none;
+  }
+  .menu-course {
+    .menu-info {
+      .menu-info__body {
+        font-size: 14px;
+        width: 210px;
+      }
+    }
+  }
+  .end {
+    text-align: center;
+  }
+  .footer-btn {
+    flex-direction: column-reverse;
+  }
+  .footer-btn a:first-child {
+    margin-right: 0px !important;
+    margin-top: 20px;
+  }
+  .calendar {
+    width: 100%;
+    margin-top: 20px;
+  }
+  .request label {
+    font-size: 12px;
+  }
+  .days div {
+    width: calc(14rem / 7);
+  }
+  .weekdays div {
+    font-size: 14px;
+  }
+  .steps li {
+    width: 25%;
+  }
+  .steps a {
+    font-size: 10px;
+  }
+}

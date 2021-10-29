@@ -1,0 +1,117 @@
+.title {
+  padding: 15px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  margin-bottom: 10px;
+}
+
+.title h3 {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.steps {
+  overflow: hidden;
+}
+
+.steps a {
+  color: white;
+}
+
+.steps li {
+  float: left;
+  margin-left: 0;
+  width: 30%; /* 100 / number of steps */
+  height: 38px; /* total height */
+  list-style-type: none;
+  border-right: 3px solid white; /* width: gap between arrows, color: background of document */
+  position: relative;
+  padding: 5px 5px 5px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.steps li:first-child {
+  padding-left: 5px;
+}
+/* white arrow to the left to "erase" background (starting from the 2nd object) */
+.steps li:nth-child(n + 2)::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  border-left: 25px solid white; /* width: arrow width, color: background of document */
+  border-top: 27px solid transparent; /* width: half height */
+  border-bottom: 20px solid transparent; /* width: half height */
+  width: 0;
+  height: 0;
+  content: " ";
+}
+
+.steps li:last-child::after {
+  padding-left: 30px;
+}
+
+.steps li:last-child {
+  padding-right: 16px;
+}
+/* colored arrow to the right */
+.steps li::after {
+  z-index: 1; /* need to bring this above the next item */
+  position: absolute;
+  top: 0;
+  right: -25px; /* arrow width (negated) */
+  display: block;
+  border-left: 25px solid #7c8437; /* width: arrow width */
+  border-top: 27px solid transparent; /* width: half height */
+  border-bottom: 20px solid transparent; /* width: half height */
+  width: 0;
+  height: 0;
+  content: " ";
+}
+
+.steps li {
+  background-color: #d8d8d8;
+}
+.steps li::after {
+  border-left-color: #d8d8d8;
+}
+
+/* Current */
+.steps li.current {
+  background-color: #fff9e7;
+}
+
+.steps li.current a {
+  color: black;
+}
+.steps li.current::after {
+  border-left-color: #fff9e7;
+}
+
+/* Following */
+.steps li.current ~ li {
+  background-color: #d8d8d8;
+}
+.steps li.current ~ li::after {
+  border-left-color: #d8d8d8;
+}
+
+@media screen and (max-width: 1023px) {
+  .steps li:first-child {
+    padding-left: 15px;
+  }
+  .steps li:last-child {
+    padding-right: 28px;
+  }
+  .steps li {
+    width: 28%;
+  }
+}
+@media screen and (max-width: 767px) {
+  .steps li {
+    width: 25%;
+  }
+}

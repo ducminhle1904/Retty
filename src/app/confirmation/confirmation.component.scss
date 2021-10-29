@@ -1,0 +1,135 @@
+.menu {
+  .menu-time {
+    text-align: center;
+    background-color: rgb(243, 238, 229);
+    padding: 15px 0;
+    margin-bottom: 10px;
+    p {
+      font-weight: 600;
+      font-size: 20px;
+      margin-top: 10px;
+    }
+  }
+  .menu-format {
+    border-top: 1px solid rgb(58, 56, 56);
+    border-bottom: 1px solid rgb(58, 56, 56);
+    padding: 15px 0;
+    p {
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+  }
+  .menu-booked {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+  }
+}
+
+.bonus {
+  background-color: white;
+  padding: 20px 20px;
+  margin-bottom: 10px;
+  .bonus-title {
+    font-weight: 600;
+    color: gray;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgb(58, 56, 56);
+  }
+  .bonus-content {
+    h4 {
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+    span {
+      color: red;
+    }
+    p {
+      color: gray;
+      font-size: 12px;
+      line-height: 20px;
+    }
+  }
+}
+
+.form {
+  background-color: white;
+  padding: 20px 20px;
+  .form-input {
+    position: relative;
+    .error {
+      font-size: 12px;
+      color: red;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      margin-bottom: 5px;
+    }
+    .is-invalid {
+      border: 1px solid red;
+    }
+  }
+  label {
+    font-weight: 600;
+    font-size: 14px;
+  }
+  input {
+    padding: 10px 0;
+    padding-left: 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    width: 98%;
+    margin-bottom: 20px;
+    margin-top: 10px;
+  }
+  .form-check {
+    position: absolute;
+    right: 3%;
+    bottom: 30px;
+    color: green;
+  }
+}
+
+.visit {
+  background-color: white;
+  padding: 20px 20px;
+  p {
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .visit-form {
+    display: flex;
+    padding: 10px 10px;
+    border: 1px solid gray;
+  }
+}
+
+.footer {
+  margin-top: 20px;
+  text-align: center;
+  p {
+    font-size: 12px;
+  }
+  .footer-p {
+    max-width: 500px;
+    margin: auto;
+    margin-bottom: 20px;
+  }
+  span {
+    color: blue;
+  }
+}
+
+.footer-btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  align-items: center;
+  a {
+    padding: 10px 15px;
+    font-weight: 600;
+    border: 1px solid gray;
+    border-radius: 5px;
+  }
+}

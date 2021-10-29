@@ -1,0 +1,54 @@
+<main>
+  <div class="thanks">
+    <div class="thanks-header">
+      <h4>Thank you for your reservation</h4>
+      <p>
+        We have sent a reservation completion email to your contact information.
+      </p>
+      <p>
+        You can also check the reservation details from the reservation
+        management page.
+      </p>
+    </div>
+
+    <div class="thanks-payment">
+      <h4 class="thanks-payment__header">
+        If you finish as it is, you will not get the PayPay bonus
+      </h4>
+      <p style="margin-bottom: 10px">If you link with PayPay from this page</p>
+      <p>
+        At the store <span style="font-size: 22px; color: red">150</span>
+        <span style="color: red">Equivalent to yen</span>
+        <span style="color: gray; font-size: 14px; font-weight: 500"
+          >(PayPay bonus)</span
+        >Can be earned
+      </p>
+      <button style="cursor: pointer" onclick="showBtn()">
+        PayPay intergration
+      </button>
+      <div id="paypal-button-container" style="display: none"></div>
+    </div>
+
+    <div class="thanks-info">
+      <p>* PayPay bonus will be given about 7 days after your visit</p>
+      <p>
+        * The amount of PayPay bonus granted may vary depending on the
+        conditions of your reservation, Please
+        <span style="color: blue">see here</span> for details
+      </p>
+      <p>
+        * PayPay Bonus cannot be withdrawn or transfered. Also available at the
+        PayPay official store
+      </p>
+    </div>
+
+    <div class="thanks-navigation">
+      <a routerLink="/confirmation" routerLinkActive="active" class="link"
+        >Confirm the reservation details</a
+      >
+      <span style="color: blue; margin: 0 10px">></span>
+      <a routerLink="" routerLinkActive="active" class="link">To store TOP</a>
+      <span style="color: blue; margin: 0 10px">></span>
+    </div>
+  </div>
+</main>

@@ -1,0 +1,50 @@
+<main>
+  <div class="menu">
+    <div class="menu-header">
+      <p>Please select a <span class="span-big">course</span></p>
+      <a routerLink="" routerLinkActive="active" class="link">Change</a>
+    </div>
+
+    <div class="menu-content" id="app" *ngFor="let courseEl of courseList">
+      <app-single-course [course]="courseEl"></app-single-course>
+    </div>
+  </div>
+
+  <div class="visitor">
+    <p class="p-border-bottom">
+      <span class="span-big">Please</span> select the
+      <span class="span-big">number of visitors and the date</span> and
+      <span class="span-big">time</span> of
+      <span class="span-big">your visit</span>
+    </p>
+    <span class="visitor-span">
+      If you select a course, you can select the number of people who can make a
+      reservation, the date and time
+    </span>
+  </div>
+
+  <div class="visitor">
+    <p class="p-border-bottom">
+      Please select a <span class="span-big">seat</span>
+    </p>
+    <span class="visitor-span">
+      If you select the seats that can be reserved by selecting the number of
+      people the date of visit, the time, and the course
+    </span>
+  </div>
+
+  <div class="center-btn">
+    <a href="" class="proceed btn-disabled"
+      >Proceed to enter reservation information</a
+    >
+  </div>
+
+  <div class="end">
+    <p class="end-tag">
+      Even if the date has an "x", you may be able to make a reservation due to
+      cancellation.
+    </p>
+    <span class="orange-cl span-big">050-5304-9884</span>
+    <span class="span-small"> (Reservation number)</span>
+  </div>
+</main>

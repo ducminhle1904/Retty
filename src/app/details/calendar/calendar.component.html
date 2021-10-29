@@ -1,0 +1,87 @@
+<div class="calendar" id="calendar">
+  <div class="month">
+    <i
+      class="fas fa-angle-left prev"
+      style="margin-left: 10px"
+      (click)="setMonth(-1)"
+    ></i>
+    <div class="date">
+      {{ date | date }}
+    </div>
+    <i
+      class="fas fa-angle-right next"
+      style="margin-right: 10px"
+      (click)="setMonth(+1)"
+    ></i>
+  </div>
+  <div class="weekdays">
+    <div style="color: red">Sun</div>
+    <div>Mon</div>
+    <div>Tue</div>
+    <div>Wed</div>
+    <div>Thu</div>
+    <div>Fri</div>
+    <div style="color: blue">Sat</div>
+  </div>
+  <div class="days">
+    <div
+      *ngFor="let date of dates"
+      [ngClass]="{ gray: !isSameMonth(date) }"
+      (click)="selectDate(date)"
+    >
+      {{ date | date: "d" }}
+      <p *ngIf="!isSameMonth(date)" style="font-weight: 700; font-size: 20px">
+        -
+      </p>
+      <input
+        type="radio"
+        id="day"
+        name="day"
+        value="{{ date | date }}"
+        required
+        *ngIf="isSameMonth(date)"
+        (change)="onItemChange($event)"
+      />
+    </div>
+  </div>
+  <div
+    class="request"
+    style="
+      width: 100%;
+      justify-content: space-around;
+      background-color: #f4f4f5;
+      flex-wrap: wrap;
+      padding-top: 20px;
+    "
+  >
+    <div style="display: flex; align-items: center">
+      <input
+        type="radio"
+        id="1"
+        name="request"
+        value="Book immediately"
+        required
+      />
+      <label for="request">Immediate reservation OK</label>
+    </div>
+
+    <div style="display: flex; align-items: center">
+      <input type="radio" id="2" name="request" value="Request reservation" />
+      <label for="request">Request reservation</label>
+    </div>
+
+    <div style="font-weight: 600; font-size: 13px; padding-top: 5px">
+      <span style="color: #ffab40">TEL </span>Telephone reservation
+    </div>
+  </div>
+  <p
+    style="
+      font-weight: 400;
+      font-size: 12px;
+      padding: 10px 0px 20px 20px;
+      background: #f4f4f5;
+    "
+  >
+    Request reservations will be confirmed by contacting the shop.
+  </p>
+</div>

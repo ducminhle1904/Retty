@@ -1,0 +1,217 @@
+<main>
+  <div class="menu">
+    <div class="menu-header">
+      <p>Please select a <span class="span-big">course</span></p>
+      <a routerLink="" routerLinkActive="active">Change</a>
+    </div>
+    <div class="menu-body">
+      <div class="menu-course" *ngFor="let item of courses">
+        <div class="menu-image">
+          <img
+            src="https://www.thaistreet.com.vn/wp-content/uploads/2021/04/Food.jpg"
+            alt="food"
+          />
+        </div>
+
+        <div class="menu-info">
+          <div class="menu-info__body">
+            <h3 id="coursenamedetail">{{ item.title }}</h3>
+            <p class="menu-price" id="menu-price">
+              {{ item.price }} yen (tax included)
+            </p>
+          </div>
+        </div>
+        <div class="menu-btn">
+          <button (click)="remove(item)">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="filter">
+    <p>
+      Please <span>select the</span> number of visitors and the expected date
+      <span>of</span> visit
+    </p>
+
+    <form class="filter-dropdown" id="myform" name="myform">
+      <div class="filter-flex">
+        <div class="filter-people">
+          <div class="select-box">
+            <div class="select-box__current" tabindex="1">
+              <i class="fas fa-user-friends"></i>
+              <div class="select-box__value" *ngFor="let option of options">
+                <input
+                  class="select-box__input"
+                  type="radio"
+                  id="{{ option.id }}"
+                  value="{{ option.value }}"
+                  name="people"
+                  required
+                  [(ngModel)]="peopleSelected"
+                  (change)="onPeopleChange(option)"
+                />
+                <p class="select-box__input-text">{{ option.name }}</p>
+              </div>
+              <img
+                class="select-box__icon"
+                src="http://cdn.onlinewebfonts.com/svg/img_295694.svg"
+                alt="Arrow Icon"
+                aria-hidden="true"
+              />
+            </div>
+            <ul class="select-box__list">
+              <li>
+                <label
+                  class="select-box__option"
+                  for="0"
+                  aria-hidden="aria-hidden"
+                  >1 People</label
+                >
+              </li>
+              <li>
+                <label
+                  class="select-box__option"
+                  for="1"
+                  aria-hidden="aria-hidden"
+                  >2 People</label
+                >
+              </li>
+              <li>
+                <label
+                  class="select-box__option"
+                  for="2"
+                  aria-hidden="aria-hidden"
+                  >3 People</label
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="filter-calendar" id="filter-calendar">
+          <div
+            class="select-box"
+            style="
+              padding: 15px 0;
+              box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+              cursor: pointer;
+            "
+            (click)="setShow()"
+          >
+            <i class="far fa-calendar-alt"></i>
+            <p style="text-align: center" id="dayFilter" *ngIf="!selected">
+              {{ date }}
+            </p>
+            <p style="text-align: center" id="dayFilter" *ngIf="selected">
+              {{ selected }}
+            </p>
+            <img
+              class="select-box__icon"
+              src="http://cdn.onlinewebfonts.com/svg/img_295694.svg"
+              alt="Arrow Icon"
+              aria-hidden="true"
+            />
+          </div>
+          <app-calendar
+            *ngIf="show"
+            (selected)="selected = $event"
+          ></app-calendar>
+        </div>
+      </div>
+
+      <p class="span-big">Please <span>select</span> your visit time</p>
+      <div class="icon-move" style="left: -20px">
+        <i class="fas fa-chevron-left"></i>
+      </div>
+
+      <div class="select-time" id="select-time" #nav>
+        <div class="time" *ngFor="let time of times">
+          <label for="{{ time.id }}">{{ time.time }}</label>
+          <input
+            type="radio"
+            id="{{ time.id }}"
+            name="time"
+            value="{{ time.time }}"
+            required
+            [(ngModel)]="timeSelected"
+            (change)="onTimeChange(time)"
+          />
+        </div>
+      </div>
+
+      <div class="icon-move" style="right: -20px">
+        <i class="fas fa-chevron-right"></i>
+      </div>
+
+      <div class="request">
+        <div
+          style="display: flex; align-items: center"
+          *ngFor="let request of requests"
+        >
+          <input
+            type="radio"
+            id="{{ request.id }}"
+            name="request"
+            value="{{ request.name }}"
+            required
+            [(ngModel)]="requestSelected"
+            (change)="onRequestChange(request)"
+          />
+          <label for="request">{{ request.name }}</label>
+        </div>
+      </div>
+      <p style="font-weight: 400; margin-top: 15px; font-size: 14px">
+        Request reservations will be confirmed by contacting the shop.
+      </p>
+    </form>
+  </div>
+
+  <div class="menu" style="margin-top: 15px; padding: 20px 40px">
+    <div class="menu-seat">
+      <p class="p-border-bottom">
+        Please select a
+        <span class="span-big">seat</span>
+      </p>
+      <div class="seat-flex">
+        <div
+          class="menu-content_item"
+          style="border-bottom: none"
+          *ngFor="let seat of courses"
+        >
+          <div class="menu-image">
+            <img
+              src="http://aimory.vn/wp-content/uploads/2017/10/no-image.png"
+              alt="food"
+            />
+          </div>
+
+          <div class="menu-info">
+            <p>Private room / non-smoking seat</p>
+            <span style="font-size: 14px">Charge fee: None</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="center-btn">
+    <button
+      class="proceed"
+      type="submit"
+      form="myform"
+      routerLink="/confirmation"
+      routerLinkActive="active"
+    >
+      Proceed to enter reservation information
+    </button>
+  </div>
+
+  <div class="end">
+    <p class="end-tag">
+      Even if the date has an "x", you may be able to make a reservation due to
+      cancellation.
+    </p>
+    <span class="orange-cl span-big">050-5304-9884</span>
+    <span class="span-small"> (Reservation number)</span>
+  </div>
+</main>
